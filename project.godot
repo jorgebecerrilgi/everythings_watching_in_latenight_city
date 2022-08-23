@@ -1,0 +1,182 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Advertisement",
+"language": "GDScript",
+"path": "res://src/minigames/advertisement/advertisement.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "AmbienceSound",
+"language": "GDScript",
+"path": "res://src/nights/ambience_sound.gd"
+}, {
+"base": "Node2D",
+"class": "Client",
+"language": "GDScript",
+"path": "res://src/client/client.gd"
+}, {
+"base": "Node2D",
+"class": "Clock",
+"language": "GDScript",
+"path": "res://src/hud/clock.gd"
+}, {
+"base": "Label",
+"class": "DialogueBox",
+"language": "GDScript",
+"path": "res://src/hud/dialogue_box.gd"
+}, {
+"base": "Node2D",
+"class": "FlyerCounter",
+"language": "GDScript",
+"path": "res://src/hud/flyer_counter.gd"
+}, {
+"base": "Node2D",
+"class": "GasPump",
+"language": "GDScript",
+"path": "res://src/minigames/gasoline/gas_pump.gd"
+}, {
+"base": "Node2D",
+"class": "GasTank",
+"language": "GDScript",
+"path": "res://src/minigames/gasoline/gas_tank.gd"
+}, {
+"base": "Node2D",
+"class": "Gasoline",
+"language": "GDScript",
+"path": "res://src/minigames/gasoline/gasoline.gd"
+}, {
+"base": "Sprite",
+"class": "Intro",
+"language": "GDScript",
+"path": "res://src/hud/intro.gd"
+}, {
+"base": "Area2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://src/items/item.gd"
+}, {
+"base": "Item",
+"class": "ItemSelect",
+"language": "GDScript",
+"path": "res://src/items/item_select.gd"
+}, {
+"base": "Item",
+"class": "ItemUse",
+"language": "GDScript",
+"path": "res://src/items/item_use.gd"
+}, {
+"base": "ItemUse",
+"class": "ItemUseHold",
+"language": "GDScript",
+"path": "res://src/items/item_use_hold.gd"
+}, {
+"base": "ItemUse",
+"class": "ItemUseSwitch",
+"language": "GDScript",
+"path": "res://src/items/item_use_switch.gd"
+}, {
+"base": "Node2D",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://src/menus/main_menu.gd"
+}, {
+"base": "Node2D",
+"class": "Meter",
+"language": "GDScript",
+"path": "res://src/hud/meters/meter.gd"
+}, {
+"base": "Node2D",
+"class": "Night",
+"language": "GDScript",
+"path": "res://src/nights/night.gd"
+}, {
+"base": "Node2D",
+"class": "Pressure",
+"language": "GDScript",
+"path": "res://src/minigames/pressure/pressure.gd"
+}, {
+"base": "Node2D",
+"class": "PressureTire",
+"language": "GDScript",
+"path": "res://src/minigames/pressure/pressure_tire.gd"
+}, {
+"base": "Node2D",
+"class": "ResultsMenu",
+"language": "GDScript",
+"path": "res://src/menus/results_menu.gd"
+}, {
+"base": "Node2D",
+"class": "SatisfactionIndicator",
+"language": "GDScript",
+"path": "res://src/hud/satisfaction_indicator.gd"
+}, {
+"base": "Node2D",
+"class": "Trash",
+"language": "GDScript",
+"path": "res://src/minigames/advertisement/trash.gd"
+}, {
+"base": "Node2D",
+"class": "VehicleTires",
+"language": "GDScript",
+"path": "res://src/minigames/pressure/vehicle_tires.gd"
+} ]
+_global_script_class_icons={
+"Advertisement": "",
+"AmbienceSound": "",
+"Client": "",
+"Clock": "",
+"DialogueBox": "",
+"FlyerCounter": "",
+"GasPump": "",
+"GasTank": "",
+"Gasoline": "",
+"Intro": "",
+"Item": "",
+"ItemSelect": "",
+"ItemUse": "",
+"ItemUseHold": "",
+"ItemUseSwitch": "",
+"MainMenu": "",
+"Meter": "",
+"Night": "",
+"Pressure": "",
+"PressureTire": "",
+"ResultsMenu": "",
+"SatisfactionIndicator": "",
+"Trash": "",
+"VehicleTires": ""
+}
+
+[application]
+
+config/name="Everything's watching in Latenight City"
+config/description="Manage the gas-station while trying to listen to your customers. Remember, the client is always in the right!"
+run/main_scene="res://src/menus/main_menu.tscn"
+boot_splash/use_filter=false
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://src/nights/global.gd"
+
+[display]
+
+window/size/width=384
+window/size/height=216
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

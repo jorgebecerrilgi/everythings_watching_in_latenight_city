@@ -1,0 +1,222 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/menus/station_off.png" type="Texture" id=1]
+[ext_resource path="res://assets/menus/main_menu_title.png" type="Texture" id=2]
+[ext_resource path="res://assets/menus/main_menu_car.png" type="Texture" id=3]
+[ext_resource path="res://src/menus/main_menu.gd" type="Script" id=4]
+[ext_resource path="res://src/items/menu/start_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/minigames/gasoline/gas_tank.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/minigames/pressure/pressure_tire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/fonts/latenight_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://src/nights/night.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/nights/ambience_sound.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "exit"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Car:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Car:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 144, 112 ), Vector2( 192, 112 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "transition" ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 144, 112 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Car:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BlackScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Text:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "transition"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_game"
+} ]
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 4 )
+first_night = ExtResource( 9 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+mouse_filter = 2
+color = Color( 0.101961, 0.0470588, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StationOff" type="Sprite" parent="."]
+position = Vector2( 80, 72 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Car" type="Sprite" parent="."]
+position = Vector2( 144, 112 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="GasTank" parent="." instance=ExtResource( 6 )]
+position = Vector2( 8, 72 )
+
+[node name="PressureTire" parent="." instance=ExtResource( 7 )]
+position = Vector2( 304, 72 )
+
+[node name="Title" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/exit = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/transition = SubResource( 3 )
+
+[node name="StartButton" parent="." instance=ExtResource( 5 )]
+position = Vector2( 183, 93 )
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 384.0
+margin_bottom = 216.0
+mouse_filter = 2
+color = Color( 0.101961, 0.0470588, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 168.0
+margin_top = 96.0
+margin_right = 227.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.65098, 0.541176, 0.521569, 1 )
+text = "A game by
+Jorge Becerril"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmbienceSound" parent="." instance=ExtResource( 10 )]

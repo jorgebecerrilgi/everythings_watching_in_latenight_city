@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/minigames/pressure/pressure_tire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/minigames/pressure/vehicle_tires.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/hud/meters/meter_pressure.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/minigames/pressure/pressure.gd" type="Script" id=4]
+
+[node name="Pressure" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Tire" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304, 32 )
+
+[node name="VehicleTires" parent="." instance=ExtResource( 2 )]
+position = Vector2( 312, 32 )
+
+[node name="MeterPressure" parent="." instance=ExtResource( 3 )]
+position = Vector2( 272, 0 )

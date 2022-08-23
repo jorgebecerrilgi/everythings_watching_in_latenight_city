@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/hud/meters/meter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/minigames/pressure/meter_pressure.png" type="Texture" id=2]
+[ext_resource path="res://assets/minigames/pressure/meter_pressure_indicator.png" type="Texture" id=3]
+
+[node name="MeterPressure" instance=ExtResource( 1 )]
+seconds_to_complete = 20
+
+[node name="Scale" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Indicator" parent="." index="1"]
+position = Vector2( 14, 0 )
+texture = ExtResource( 3 )
+
+[node name="Start" parent="." index="2"]
+position = Vector2( 14, 0 )
+
+[node name="End" parent="." index="3"]
+position = Vector2( 76, 0 )
